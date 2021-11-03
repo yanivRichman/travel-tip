@@ -18,37 +18,20 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
         });
         console.log('Map!', gMap);
 
-<<<<<<< HEAD
-            gMap.addListener('click', (mapsMouseEvent) => {
-                let clickedPos = mapsMouseEvent.latLng.toJSON()
-                console.log(clickedPos);
-
-                // let infoWindow = new google.maps.InfoWindow({
-                //     content: `<input type="text" name="save-name" placeholder="Name the place!">
-                //     <button class="btn btn-save-name" onclick="onSaveLocation(clickedPos)">Save Location</button>`,
-                //     position: gMap.center,
-                // });
-                // infoWindow.open(gMap);
-
-
-            })
-        })
-=======
         gMap.addListener('click', (mapsMouseEvent) => {
-            let clickedPos = mapsMouseEvent.latLng.toJSON();
-            let infoWindow = new google.maps.InfoWindow({
-                content: `Name the spot<br>
-                    <input type="text" name="loc-name" id="loc-name"><br>
-                    <button type="submit" class="btn loc-save-btn" name="loc-name" onclick="onSaveName(this.value)">Save Location</button>`,
-                position: gMap.center,
-            });
-            infoWindow.open(gMap);
-            // let posName = prompt('Name of loaction to be saved?');
-            // console.log(posName)
+            let clickedPos = mapsMouseEvent.latLng.toJSON()
             console.log(clickedPos);
-        });
-    });
->>>>>>> ed4aaa7b6eb29a8a8a5f047a4ee3a91bbe92fa41
+
+            // let infoWindow = new google.maps.InfoWindow({
+            //     content: `<input type="text" name="save-name" placeholder="Name the place!">
+            //     <button class="btn btn-save-name" onclick="onSaveLocation(clickedPos)">Save Location</button>`,
+            //     position: gMap.center,
+            // });
+            // infoWindow.open(gMap);
+
+
+        })
+    })
 }
 
 function addMarker(loc) {
@@ -66,13 +49,8 @@ function panTo(lat, lng) {
 }
 
 function _connectGoogleApi() {
-<<<<<<< HEAD
     if (window.google) return Promise.resolve()
     const API_KEY = 'AIzaSyDLnvwHZ3qiqSKnFkDrUd-6oYw-2f2m9vE'
-=======
-    if (window.google) return Promise.resolve();
-    const API_KEY = 'AIzaSyBVD3I9gj3fOYt_lJ0Npeb2lspNLlD9elE';
->>>>>>> ed4aaa7b6eb29a8a8a5f047a4ee3a91bbe92fa41
     var elGoogleApi = document.createElement('script');
     elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`;
     elGoogleApi.async = true;
