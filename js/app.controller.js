@@ -23,8 +23,8 @@ function onInit() {
 
 function onSearch(ev) {
     if (ev) ev.preventDefault();
-    const elInputSearch = document.querySelector('input[name=location]');
-    mapService.getVideos(elInputSearch.value)
+    const elInputSearch = document.querySelector('input[name=search]');
+    mapService.getLocation(elInputSearch.value)
 
 }
 
