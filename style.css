@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* helpers */
+
+.flex {
+    display: flex;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex.column {
+    flex-direction: column;
+}
+
+/* layout */
+
+.main-container {
+    padding: 20px;
+    width: 960px;
+    background-color: salmon;
+}
+
+.data-container {
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.weather-container, .locations-table{
+    flex-basis: 50%;
+}
+
+.weather-container {
+    background-color: white;
+}
+
+.data-container {
+    background-color: darkcyan;
+}
