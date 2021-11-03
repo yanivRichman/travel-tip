@@ -7,6 +7,7 @@ export const mapService = {
 }
 
 var gMap;
+const API_KEY = 'AIzaSyDNyrNr0MyFXTxYobEUYROPnvMr9rrvxCA';
 
 function initMap(lat = 32.0749831, lng = 34.9120554) {
     console.log('InitMap');
