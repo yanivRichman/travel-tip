@@ -3,7 +3,8 @@
 export const mapService = {
     initMap,
     addMarker,
-    panTo
+    panTo,
+    gMap
 }
 
 var gMap;
@@ -19,6 +20,20 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
                 zoom: 15
             })
             console.log('Map!', gMap);
+
+            gMap.addListener('click', (mapsMouseEvent) => {
+                let clickedPos = mapsMouseEvent.latLng.toJSON();
+                let infoWindow = new google.maps.InfoWindow({
+                    content: `Name the spot<br>
+                    <input type="text" name="loc-name" id="loc-name"><br>
+                    <button type="submit" class="btn loc-save-btn" name="loc-name" onclick="onSaveName(this.value)">Save Location</button>`,
+                    position: gMap.center,
+                });
+                infoWindow.open(gMap);
+                // let posName = prompt('Name of loaction to be saved?');
+                // console.log(posName)
+                console.log(clickedPos)
+            })
         })
 }
 

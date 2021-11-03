@@ -13,8 +13,10 @@
         <header class="main-header flex space-between align-center">
             <h1 class="logo">TravelTip</h1>
             <section class="search-bar">
-                <input type="select" id="location" name="location" placeholder="Enter Location">
-                <button onclick="onSearch()" class="btn btn-search">Go</button>
+                <form onsubmit="onSearch(event)">
+                    <input type="text" name="search" placeholder="Enter Location">
+                    <button class="btn btn-search">Go</button>
+                </form>
                 <button onclick="onGetUserPos()" class="btn btn-user-pos">My Location</button>
             </section>
         </header>
@@ -39,10 +41,6 @@
         <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
 
     </main>
-
-
-
-
     <script type="module" src="js/app.controller.js"></script>
 </body>
 
