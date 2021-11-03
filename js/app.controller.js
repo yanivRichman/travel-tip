@@ -7,12 +7,15 @@ window.onAddMarker = onAddMarker;
 window.onPanTo = onPanTo;
 window.onGetLocs = onGetLocs;
 window.onGetUserPos = onGetUserPos;
+window.onMapClicked = onMapClicked;
+window.onSaveLocation = onSaveLocation;
 
 function onInit() {
     mapService
         .initMap()
         .then(() => {
             console.log('Map is ready');
+
         })
         .catch(() => console.log('Error: cannot init map'));
 }
@@ -59,4 +62,12 @@ function onGetUserPos() {
 function onPanTo() {
     console.log('Panning the Map');
     mapService.panTo(35.6895, 139.6917);
+}
+
+function onMapClicked(ev) {
+    console.log(ev);
+}
+
+function onSaveLocation(name) {
+    console.log(name)
 }
