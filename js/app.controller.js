@@ -12,6 +12,7 @@ window.onSaveLocation = onSaveLocation;
 
 
 function onInit() {
+    onGetLocs()
     mapService
         .initMap()
         .then(() => {
@@ -25,6 +26,7 @@ function onSearch(ev) {
     if (ev) ev.preventDefault();
     const elInputSearch = document.querySelector('input[name=search]');
     mapService.getLocation(elInputSearch.value)
+
 
 }
 
@@ -44,7 +46,13 @@ function onAddMarker() {
 function onGetLocs() {
     locService.getLocs().then((locs) => {
         console.log('Locations:', locs);
-        document.querySelector('.locs').innerText = JSON.stringify(locs);
+        var strHtml = locs.map(location => {
+            return `<p>Name: ${location.name}</p>
+            <button onclick="onPanTo('${location.lat},${location.lng}')">Go</button>
+            <button onclick="onDeleteLoc('${location.name}')">Delete</button>            
+            `
+        })
+        document.querySelector('.locs').innerHTML = strHtml.join('');
     });
 }
 

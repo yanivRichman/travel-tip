@@ -1,3 +1,5 @@
+import { locService } from './loc.service.js';
+
 export const mapService = {
     initMap,
     addMarker,
@@ -20,7 +22,11 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
 
         gMap.addListener('click', (mapsMouseEvent) => {
             let clickedPos = mapsMouseEvent.latLng.toJSON()
-            console.log(clickedPos);
+            let spotName = prompt('What is the name of the location you want to save?');
+            console.log(clickedPos)
+            panTo(clickedPos.lat, clickedPos.lng)
+            addMarker(clickedPos, spotName)
+            locService.saveLocation(clickedPos, spotName);
 
             // let infoWindow = new google.maps.InfoWindow({
             //     content: `<input type="text" name="save-name" placeholder="Name the place!">
@@ -28,17 +34,15 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
             //     position: gMap.center,
             // });
             // infoWindow.open(gMap);
-
-
         })
     })
 }
 
-function addMarker(loc) {
+function addMarker(loc, spotName) {
     var marker = new google.maps.Marker({
         position: loc,
         map: gMap,
-        title: 'Hello World!',
+        title: spotName,
     });
     return marker;
 }
@@ -68,6 +72,12 @@ function getLocation(term) {
         .get(
             `https://maps.googleapis.com/maps/api/geocode/json?address=${term}&key=${API_KEY}`
         )
-        .then((res) => (res.data.results[0].geometry.location))
-        .then((res) => panTo(res.lat, res.lng))
+        .then((res) => {
+            const loc = res.data.results[0].geometry.location
+            panTo(loc.lat, loc.lng);
+            addMarker(loc, term);
+            locService.saveLocation(loc, term);
+
+        })
+
 }
