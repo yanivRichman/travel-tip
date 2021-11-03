@@ -37,10 +37,9 @@ function panTo(lat, lng) {
 }
 
 
-
 function _connectGoogleApi() {
     if (window.google) return Promise.resolve()
-    const API_KEY = 'AIzaSyDNyrNr0MyFXTxYobEUYROPnvMr9rrvxCA'
+    const API_KEY = 'AIzaSyBVD3I9gj3fOYt_lJ0Npeb2lspNLlD9elE'
     var elGoogleApi = document.createElement('script');
     elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`;
     elGoogleApi.async = true;
