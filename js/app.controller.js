@@ -10,6 +10,7 @@ window.onGetUserPos = onGetUserPos;
 window.onMapClicked = onMapClicked;
 window.onSaveLocation = onSaveLocation;
 
+
 function onInit() {
     mapService
         .initMap()
@@ -68,6 +69,10 @@ function onMapClicked(ev) {
     console.log(ev);
 }
 
-function onSaveLocation(name) {
-    console.log(name)
+function onSaveLocation() {
+    // ev.preventDefault();
+    // console.log(ev)
+    const elInputName = document.querySelector('input[name=save-name]').value;
+    console.log(elInputName)
+
 }
